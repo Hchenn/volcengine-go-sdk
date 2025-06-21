@@ -28,7 +28,7 @@ func (c *Client) CreateBatchChatCompletion(
 		return
 	}
 	requestOptions := append(setters, withBody(request))
-	err = c.DoBatch(ctx, http.MethodPost, c.fullURL(batchChatCompletionsSuffix), resourceTypeEndpoint, request.GetModel(), &response, requestOptions...)
+	err = c.Do(ctx, http.MethodPost, c.fullURL(batchChatCompletionsSuffix), resourceTypeEndpoint, request.GetModel(), &response, requestOptions...)
 	if err != nil {
 		return
 	}
